@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soil List</title>
+</head>
+<body>
+    <h1>Soil List</h1>
+    
+    <!-- Arama Formu -->
+    <form method="get">
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search">
+        <button type="submit">Search</button>
+    </form>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Client Name</th>
+                <th>City</th>
+                <th>Village</th>
+                <th>ER No</th>
+                <th>Licence No</th>
+                <th>Phase</th>
+                <th>Observation ID</th>
+                <th>Sample No</th>
+                <th>Projection</th>
+                <th>UTM Zone</th>
+                <th>Easting M</th>
+                <th>Northing M</th>
+                <th>Elevation M</th>
+                <th>Sample Type</th>
+                <th>Soil Sample Type</th>
+                <th>Moisture</th>
+                <th>Organic Content</th>
+                <th>Soil Size</th>
+                <th>Soil Slope</th>
+                <th>Horizon</th>
+                <th>Depth</th>
+                <th>Rock Percent</th>
+                <th>Color</th>
+                <th>Color Code</th>
+                <th>Rock Type</th>
+                <th>Rock Type Code</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for soil in soils %}
+                <tr>
+                    <td>{{ soil.ClientName }}</td>
+                    <td>{{ soil.City }}</td>
+                    <td>{{ soil.Village }}</td>
+                    <td>{{ soil.ER_No }}</td>
+                    <td>{{ soil.Licence_No }}</td>
+                    <td>{{ soil.Phase }}</td>
+                    <td>{{ soil.ObservationID }}</td>
+                    <td>{{ soil.SampleNo }}</td>
+                    <td>{{ soil.Projection }}</td>
+                    <td>{{ soil.UTMZone }}</td>
+                    <td>{{ soil.EastingM }}</td>
+                    <td>{{ soil.NorthingM }}</td>
+                    <td>{{ soil.ElevationM }}</td>
+                    <td>{{ soil.SampleType }}</td>
+                    <td>{{ soil.SoilSampleType }}</td>
+                    <td>{{ soil.Moisture }}</td>
+                    <td>{{ soil.OrganicContent }}</td>
+                    <td>{{ soil.SoilSize }}</td>
+                    <td>{{ soil.SoilSlope }}</td>
+                    <td>{{ soil.Horizon }}</td>
+                    <td>{{ soil.Depth }}</td>
+                    <td>{{ soil.RockPercent }}</td>
+                    <td>{{ soil.Color }}</td>
+                    <td>{{ soil.ColorCode }}</td>
+                    <td>{{ soil.RockType }}</td>
+                    <td>{{ soil.RockTypeCode }}</td>
+                    <td>{{ soil.Description }}</td>
+                    <td>
+                        <a href="{% url 'soil_update' soil.id %}">Update</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

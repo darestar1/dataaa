@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ore Microscopy List (Read-Only)</title>
+</head>
+<body>
+    <h1>Ore Microscopy List (Read-Only)</h1>
+    <form method="GET">
+        <input type="text" name="search" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Sample ID</th>
+                <th>Mineral Type</th>
+                <th>Mineral Texture</th>
+                <th>Mineral Abundance</th>
+                <th>Alteration Type</th>
+                <th>Alteration Intensity</th>
+                <th>Observation</th>
+                <th>Microscope ID</th>
+                <th>Microscope Model</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ore_microscopy in ore_microscopies %}
+                <tr>
+                    <td>{{ ore_microscopy.SampleID }}</td>
+                    <td>{{ ore_microscopy.MineralType }}</td>
+                    <td>{{ ore_microscopy.MineralTexture }}</td>
+                    <td>{{ ore_microscopy.MineralAbundance }}</td>
+                    <td>{{ ore_microscopy.AlterationType }}</td>
+                    <td>{{ ore_microscopy.AlterationIntensity }}</td>
+                    <td>{{ ore_microscopy.Observation }}</td>
+                    <td>{{ ore_microscopy.MicroscopeID }}</td>
+                    <td>{{ ore_microscopy.MicroscopeModel }}</td>
+                    <td>{{ ore_microscopy.Description }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'home' %}">Back to Home</a></p>
+</body>
+</html>

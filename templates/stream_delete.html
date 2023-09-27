@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Stream</title>
+</head>
+<body>
+    <h1>Delete Stream</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Client Name</th>
+                    <th>City</th>
+                    <th>Village</th>
+                    <th>ER No</th>
+                    <th>Licence No</th>
+                    <th>Phase</th>
+                    <th>Observation ID</th>
+                    <th>Sample No</th>
+                    <th>Projection</th>
+                    <th>UTM Zone</th>
+                    <th>Easting (m)</th>
+                    <th>Northing (m)</th>
+                    <th>Elevation (m)</th>
+                    <th>Sample Type</th>
+                    <th>Sample SubType</th>
+                    <th>Stream Condition</th>
+                    <th>Creek Width</th>
+                    <th>Stream Grade</th>
+                    <th>Sed Size Gravel Percent</th>
+                    <th>Sed Size Sand Percent</th>
+                    <th>Sed Size Silt Percent</th>
+                    <th>Organic Content</th>
+                    <th>Color</th>
+                    <th>Color Code</th>
+                    <th>FeMnOxides</th>
+                    <th>Character</th>
+                    <th>Rock Type</th>
+                    <th>Rock Type Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stream in streams %}
+                    <tr>
+                        <td><input type="radio" name="stream" value="{{ stream.id }}"></td>
+                        <td>{{ stream.ClientName }}</td>
+                        <td>{{ stream.City }}</td>
+                        <td>{{ stream.Village }}</td>
+                        <td>{{ stream.ER_No }}</td>
+                        <td>{{ stream.Licence_No }}</td>
+                        <td>{{ stream.Phase }}</td>
+                        <td>{{ stream.ObservationID }}</td>
+                        <td>{{ stream.SampleNo }}</td>
+                        <td>{{ stream.Projection }}</td>
+                        <td>{{ stream.UTMZone }}</td>
+                        <td>{{ stream.EastingM }}</td>
+                        <td>{{ stream.NorthingM }}</td>
+                        <td>{{ stream.ElevationM }}</td>
+                        <td>{{ stream.SampleType }}</td>
+                        <td>{{ stream.SampleSubType }}</td>
+                        <td>{{ stream.StreamCondition }}</td>
+                        <td>{{ stream.CreekWidth }}</td>
+                        <td>{{ stream.StreamGrade }}</td>
+                        <td>{{ stream.SedSizeGravelPercent }}</td>
+                        <td>{{ stream.SedSizeSandPercent }}</td>
+                        <td>{{ stream.SedSizeSiltPercent }}</td>
+                        <td>{{ stream.OrganicContent }}</td>
+                        <td>{{ stream.Color }}</td>
+                        <td>{{ stream.ColorCode }}</td>
+                        <td>{{ stream.FeMnOxides }}</td>
+                        <td>{{ stream.Character }}</td>
+                        <td>{{ stream.RockType }}</td>
+                        <td>{{ stream.RockTypeCode }}</td>
+                        <td>{{ stream.Description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button type="submit">Delete Selected Stream</button>
+        <a href="{% url 'stream_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

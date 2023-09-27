@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Observation</title>
+</head>
+<body>
+    <h1>Delete Observation</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Phase</th>
+                    <th>Client Name</th>
+                    <th>City</th>
+                    <th>Village</th>
+                    <th>ER No</th>
+                    <th>Licence No</th>
+                    <th>Observation ID</th>
+                    <th>Sack No</th>
+                    <th>Sample No</th>
+                    <th>Date</th>
+                    <th>Sample Type</th>
+                    <th>Analysis Type 1</th>
+                    <th>Analysis Type 2</th>
+                    <th>Projection</th>
+                    <th>UTM Zone</th>
+                    <th>EastingM</th>
+                    <th>NorthingM</th>
+                    <th>ElevationM</th>
+                    <th>Geologist 1</th>
+                    <th>Geologist 2</th>
+                    <th>Rock Type</th>
+                    <th>Rock Type Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for observation in observations %}
+                    <tr>
+                        <td><input type="radio" name="observation" value="{{ observation.id }}"></td>
+                        <td>{{ observation.Phase }}</td>
+                        <td>{{ observation.ClientName }}</td>
+                        <td>{{ observation.City }}</td>
+                        <td>{{ observation.Village }}</td>
+                        <td>{{ observation.ER_No }}</td>
+                        <td>{{ observation.Licence_No }}</td>
+                        <td>{{ observation.ObservationID }}</td>
+                        <td>{{ observation.SackNo }}</td>
+                        <td>{{ observation.SampleNo }}</td>
+                        <td>{{ observation.Date }}</td>
+                        <td>{{ observation.SampleType }}</td>
+                        <td>{{ observation.AnalysisType1 }}</td>
+                        <td>{{ observation.AnalysisType2 }}</td>
+                        <td>{{ observation.Projection }}</td>
+                        <td>{{ observation.UTMZone }}</td>
+                        <td>{{ observation.EastingM }}</td>
+                        <td>{{ observation.NorthingM }}</td>
+                        <td>{{ observation.ElevationM }}</td>
+                        <td>{{ observation.Geologist1 }}</td>
+                        <td>{{ observation.Geologist2 }}</td>
+                        <td>{{ observation.RockType }}</td>
+                        <td>{{ observation.RockTypeCode }}</td>
+                        <td>{{ observation.Description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button type="submit">Delete Selected Observation</button>
+        <a href="{% url 'observation_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

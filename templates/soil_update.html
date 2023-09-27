@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Soil</title>
+</head>
+<body>
+    <h1>Update Soil</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="ClientName">Client Name:</label>
+        <input type="text" name="ClientName" value="{{ soil.ClientName }}" required><br>
+
+        <label for="City">City:</label>
+        <input type="text" name="City" value="{{ soil.City }}" required><br>
+        
+        <label for="Village">Village:</label>
+        <input type="text" name="Village" value="{{ soil.Village }}" required><br>
+
+        <label for="ER_No">ER No:</label>
+        <input type="text" name="ER_No" value="{{ soil.ER_No }}" required><br>
+        
+        <label for="Licence_No">Licence No:</label>
+        <input type="text" name="Licence_No" value="{{ soil.Licence_No }}" required><br>
+        
+        <label for="Phase">Phase:</label>
+        <input type="text" name="Phase" value="{{ soil.Phase }}" required><br>
+        
+        <label for="ObservationID">Observation ID:</label>
+        <input type="text" name="ObservationID" value="{{ soil.ObservationID }}" required><br>
+        
+        <label for="SampleNo">Sample No:</label>
+        <input type="text" name="SampleNo" value="{{ soil.SampleNo }}" required><br>
+        
+        <label for="Projection">Projection:</label>
+        <input type="text" name="Projection" value="{{ soil.Projection }}" required><br>
+
+        <label for="UTMZone">UTM Zone:</label>
+        <input type="text" name="UTMZone" value="{{ soil.UTMZone }}" required><br>
+
+        <label for="EastingM">Easting M:</label>
+        <input type="text" name="EastingM" value="{{ soil.EastingM }}" required><br>
+
+        <label for="NorthingM">Northing M:</label>
+        <input type="text" name="NorthingM" value="{{ soil.NorthingM }}" required><br>
+
+        <label for="ElevationM">Elevation M:</label>
+        <input type="text" name="ElevationM" value="{{ soil.ElevationM }}" required><br>
+
+        <label for="SampleType">Sample Type:</label>
+        <input type="text" name="SampleType" value="{{ soil.SampleType }}" required><br>
+
+        <label for="SoilSampleType">Soil Sample Type:</label>
+        <input type="text" name="SoilSampleType" value="{{ soil.SoilSampleType }}" required><br>
+
+        <label for="Moisture">Moisture:</label>
+        <input type="text" name="Moisture" value="{{ soil.Moisture }}" required><br>
+
+        <label for="OrganicContent">Organic Content:</label>
+        <input type="text" name="OrganicContent" value="{{ soil.OrganicContent }}" required><br>
+
+        <label for="SoilSize">Soil Size:</label>
+        <input type="text" name="SoilSize" value="{{ soil.SoilSize }}" required><br>
+
+        <label for="SoilSlope">Soil Slope:</label>
+        <input type="text" name="SoilSlope" value="{{ soil.SoilSlope }}" required><br>
+
+        <label for="Horizon">Horizon:</label>
+        <input type="text" name="Horizon" value="{{ soil.Horizon }}" required><br>
+
+        <label for="Depth">Depth:</label>
+        <input type="text" name="Depth" value="{{ soil.Depth }}" required><br>
+
+        <label for="RockPercent">Rock Percent:</label>
+        <input type="text" name="RockPercent" value="{{ soil.RockPercent }}" required><br>
+
+        <label for="Color">Color:</label>
+        <input type="text" name="Color" value="{{ soil.Color }}" required><br>
+
+        <label for="ColorCode">Color Code:</label>
+        <input type="text" name="ColorCode" value="{{ soil.ColorCode }}" required><br>
+
+        <label for="RockType">Rock Type:</label>
+        <input type="text" name="RockType" value="{{ soil.RockType }}" required><br>
+
+        <label for="RockTypeCode">Rock Type Code:</label>
+        <input type="text" name="RockTypeCode" value="{{ soil.RockTypeCode }}" required><br>
+
+        <label for="Description">Description:</label>
+        <textarea name="Description" rows="4" cols="50" required>{{ soil.Description }}</textarea><br>
+        
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'soil_list' %}">Back to Soil List</a>
+</body>
+</html>

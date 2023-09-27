@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Ore Microscopy</title>
+</head>
+<body>
+    <h1>Update Ore Microscopy</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="SampleID">Sample ID:</label>
+        <input type="text" name="SampleID" value="{{ ore_microscopy.SampleID }}" required><br>
+
+        <label for="MineralType">Mineral Type:</label>
+        <input type="text" name="MineralType" value="{{ ore_microscopy.MineralType }}" required><br>
+        
+        <label for="MineralTexture">Mineral Texture:</label>
+        <input type="text" name="MineralTexture" value="{{ ore_microscopy.MineralTexture }}" required><br>
+
+        <label for="MineralAbundance">Mineral Abundance:</label>
+        <input type="text" name="MineralAbundance" value="{{ ore_microscopy.MineralAbundance }}" required><br>
+        
+        <label for="AlterationType">Alteration Type:</label>
+        <input type="text" name="AlterationType" value="{{ ore_microscopy.AlterationType }}" required><br>
+        
+        <label for="AlterationIntensity">Alteration Intensity:</label>
+        <input type="text" name="AlterationIntensity" value="{{ ore_microscopy.AlterationIntensity }}" required><br>
+        
+        <label for="Observation">Observation:</label>
+        <input type="text" name="Observation" value="{{ ore_microscopy.Observation }}" required><br>
+        
+        <label for="MicroscopeID">Microscope ID:</label>
+        <input type="text" name="MicroscopeID" value="{{ ore_microscopy.MicroscopeID }}" required><br>
+        
+        <label for="MicroscopeModel">Microscope Model:</label>
+        <input type="text" name="MicroscopeModel" value="{{ ore_microscopy.MicroscopeModel }}" required><br>
+        
+        <label for="Description">Description:</label>
+        <textarea name="Description" rows="4" cols="50" required>{{ ore_microscopy.Description }}</textarea><br>
+        
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

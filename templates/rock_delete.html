@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Rock</title>
+</head>
+<body>
+    <h1>Delete Rock</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Client Name</th>
+                    <th>City</th>
+                    <th>Village</th>
+                    <th>ER No</th>
+                    <th>Licence No</th>
+                    <th>Phase</th>
+                    <th>Observation ID</th>
+                    <th>Sample No</th>
+                    <th>Alt1 Int Code</th>
+                    <th>Alteration2 Type</th>
+                    <th>Alt2 Style Code</th>
+                    <th>Alteration2 Intensity</th>
+                    <th>Alt2 Int Code</th>
+                    <th>Mineral1</th>
+                    <th>Min1 Code</th>
+                    <th>Mineral1 Percent</th>
+                    <th>Mineral1 Occurrence</th>
+                    <th>Structure Type</th>
+                    <th>Structure Type Code</th>
+                    <th>Azimuth</th>
+                    <th>Dip</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rock in rocks %}
+                    <tr>
+                        <td><input type="radio" name="rock" value="{{ rock.id }}"></td>
+                        <td>{{ rock.ClientName }}</td>
+                        <td>{{ rock.City }}</td>
+                        <td>{{ rock.Village }}</td>
+                        <td>{{ rock.ER_No }}</td>
+                        <td>{{ rock.Licence_No }}</td>
+                        <td>{{ rock.Phase }}</td>
+                        <td>{{ rock.ObservationID }}</td>
+                        <td>{{ rock.SampleNo }}</td>
+                        <td>{{ rock.Alt1_Int_Code }}</td>
+                        <td>{{ rock.Alteration2_Type }}</td>
+                        <td>{{ rock.Alt2_Style_Code }}</td>
+                        <td>{{ rock.Alteration2_Intensity }}</td>
+                        <td>{{ rock.Alt2_Int_Code }}</td>
+                        <td>{{ rock.Mineral1 }}</td>
+                        <td>{{ rock.Min1_Code }}</td>
+                        <td>{{ rock.Mineral1_percent }}</td>
+                        <td>{{ rock.Mineral1_Occurrence }}</td>
+                        <td>{{ rock.Structure_Type }}</td>
+                        <td>{{ rock.Structure_Type_Code }}</td>
+                        <td>{{ rock.Azimuth }}</td>
+                        <td>{{ rock.Dip }}</td>
+                        <td>{{ rock.Description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <button type="submit">Delete Selected Rock</button>
+        <a href="{% url 'rock_list' %}">Cancel</a>
+    </form>
+</body>
+</html>
